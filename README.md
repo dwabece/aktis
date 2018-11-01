@@ -15,10 +15,10 @@ Install requirements:
 ### Usage
 To run challenge regarding mouse, run:
 
-    ./mouse.py
+    ./mouse.py -i input-filename.txt
 
 
 In order to check list median task run:
 
-    ./running-median.py
+    ./running-median.py -i input-filename.txt
 
