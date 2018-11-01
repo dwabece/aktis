@@ -15,17 +15,37 @@ parser.add_argument(
 
 
 def _get_classifier(data_file):
+    """
+    Returns classifier filled with data
+    :param data_file: name of a file containing textblob data
+    :return: classifier object
+    """
     data_file_path = ospath.join(config.DATA_PATH, data_file)
     with open(data_file_path, 'r') as f:
         return NaiveBayesClassifier(f, format='json')
 
 
 def _if_animal(sentence, classifier):
+    """
+    Determines if sentence is mentioning computer mouse or an animal.
+    Returns True if textblob classifies it as an animal.
+
+    :param sentence: sentence do be analyzed
+    :param classifier: classifier object
+    :return bool: bool indicating if we're having a pest over here
+    """
     blob = TextBlob(sentence, classifier=classifier)
     return True if blob.classify() == 'pos' else False
 
 
 def _process_input(input_str):
+    """
+    Splits file contents to sentences
+
+    :param input_str: file contents
+    :return: list of sentences
+    :rtype: list
+    """
     return input_str.splitlines()[1:]
 
 
