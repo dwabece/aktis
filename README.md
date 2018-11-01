@@ -1,4 +1,4 @@
-## subwords finder
+## mouse/median tasks
 Aktis code challenge
 
 ### Installation
