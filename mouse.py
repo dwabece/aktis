@@ -1,9 +1,17 @@
 #!/usr/bin/env python
+from argparse import ArgumentParser
 from os import path as ospath
 from textblob import TextBlob
 from textblob.classifiers import NaiveBayesClassifier
 import config
 import utils
+
+
+parser = ArgumentParser()
+parser.add_argument(
+    '-i', '--inputfile', dest='filename',
+    required=True,
+    help='Fixture to be loaded and processed.')
 
 
 def _get_classifier(data_file):
@@ -21,8 +29,8 @@ def _process_input(input_str):
     return input_str.splitlines()[1:]
 
 
-if __name__ == '__main__':
-    sentences = utils.load_input('input00.txt', 'mouse')
+def run(fname):
+    sentences = utils.load_input(fname, 'mouse')
     sentences_list = _process_input(sentences)
     if not sentences:
         print('couldnt load input file')
@@ -35,3 +43,8 @@ if __name__ == '__main__':
     for sen in sentences_list:
         is_animal = _if_animal(sen, mouse_classifier)
         print('animal' if is_animal else 'computer-mouse')
+
+
+if __name__ == '__main__':
+    args = parser.parse_args()
+    run(args.filename)

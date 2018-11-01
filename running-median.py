@@ -1,20 +1,19 @@
 #!/usr/bin/env python
 import statistics as statistics
-from os import path as ospath
-import config
+from argparse import ArgumentParser
+import utils
 
-
-def load_input(fname):
-    fpath = ospath.join(config.MEDIAN_DIR, fname)
-    try:
-        with open(fpath, 'r') as f:
-            return f.read()
-    except FileNotFoundError:
-        pass
+parser = ArgumentParser()
+parser.add_argument(
+    '-i', '--inputfile', dest='filename',
+    required=True,
+    help='Fixture to be loaded and processed.')
 
 
 if __name__ == '__main__':
-    data = load_input('input01.txt')
+    args = parser.parse_args()
+
+    data = utils.load_input(args.filename, input_type='median')
     intdata = [int(i) for i in data.splitlines()][1:]
 
     res = []
