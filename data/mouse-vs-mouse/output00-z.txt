@@ -1,0 +1,11 @@
+]0;IPython: workspaces/aktis> [0;32m/Users/zero/workspaces/aktis/mouse.py[0m(72)[0;36m<module>[0;34m()[0m
+[0;32m     71 [0;31m    [0;32mimport[0m [0mipdb[0m[0;34m;[0m [0mipdb[0m[0;34m.[0m[0mset_trace[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0m
+[0m[0;32m---> 72 [0;31m    [0;32mfor[0m [0msen[0m [0;32min[0m [0msentences[0m[0;34m[[0m[0;36m1[0m[0;34m:[0m[0;34m][0m[0;34m:[0m[0;34m[0m[0m
+[0m[0;32m     73 [0;31m        [0msen[0m [0;34m=[0m [0m_clear_sentence[0m[0;34m([0m[0msen[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+ipdb> --KeyboardInterrupt--
+ipdb> --KeyboardInterrupt--
+ipdb> --KeyboardInterrupt--
+ipdb> --KeyboardInterrupt--
+ipdb> 
+Exiting Debugger.
