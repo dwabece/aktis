@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import statistics as statistics
 from argparse import ArgumentParser
 import utils
 
@@ -8,6 +7,16 @@ parser.add_argument(
     '-i', '--inputfile', dest='filename',
     required=True,
     help='Fixture to be loaded and processed.')
+
+
+def middle_row_med(inp):
+    lenx = len(inp)
+    iseven = lenx % 2 == 0
+    mid = lenx // 2
+
+    if iseven:
+        return (inp[mid - 1] + inp[mid]) / 2
+    return inp[mid]
 
 
 if __name__ == '__main__':
@@ -19,5 +28,5 @@ if __name__ == '__main__':
     res = []
     for i in intdata:
         res.append(i)
-        listmed = float(statistics.median(res))
-        print(listmed)
+        res.sort()
+        print(float(middle_row_med(res)))
